@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMAOS - Proyectos</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 60px 0;
+    }
+
+    header {
+      width: 100%;
+      background: #005075;
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 50px;
+      box-shadow: 0 2px 12px rgba(0,80,117,0.25);
+    }
+
+    .logo-circle {
+      width: 44px;
+      height: 44px;
+      background: #00A19C;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .header-text p {
+      font-size: 0.78rem;
+      color: #7ab8cc;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      width: 100%;
+      max-width: 960px;
+      padding: 0 24px;
+    }
+
+    .grid.projects {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid.banks {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #dde6ed;
+      border-radius: 10px;
+      padding: 18px 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #00A19C;
+      border-radius: 10px 0 0 10px;
+    }
+
+    .card:hover {
+      border-color: #00A19C;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,161,156,0.15);
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 2px;
+    }
+
+    .card-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      margin-bottom: 2px;
+    }
+
+    .card-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #005075;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-url {
+      font-size: 0.65rem;
+      color: #aab8c2;
+      font-family: monospace;
+    }
+
+    .card-arrow {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #00A19C;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      width: 100%;
+      max-width: 960px;
+      padding: 0 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title h2 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #7a9ab0;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #dde6ed;
+    }
+
+    .section-gap {
+      margin-top: 40px;
+    }
+
+    .card.bank::before {
+      background: #1a56a0;
+    }
+
+    .card.bank:hover {
+      border-color: #1a56a0;
+      box-shadow: 0 8px 24px rgba(26,86,160,0.12);
+    }
+
+    .card.bank .card-arrow {
+      color: #1a56a0;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.72rem;
+      color: #aab8c2;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-circle">R</div>
+    <div class="header-text">
+      <h1>RUMAOS</h1>
+      <p>Panel de proyectos</p>
+    </div>
+  </header>
+
+  <div class="section-title"><h2>Proyectos</h2></div>
+  <div class="grid projects">
+
+    <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Orquestador Offline</div>
+      <div class="card-url">181.118.92.146:10000/echeq</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.100.30:5000/vm" target="_blank">
+      <div class="card-icon">⚙️</div>
+      <div class="card-title">Orquestador</div>
+      <div class="card-url">192.168.100.30:5000/vm</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.200.12:5000/login" target="_blank">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Panel General Operativo</div>
+      <div class="card-url">192.168.200.12:5000/login</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.200.44:5055" target="_blank">
+      <div class="card-icon">💰</div>
+      <div class="card-title">Resumen de Saldo</div>
+      <div class="card-url">192.168.200.44:5055</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+  </div>
+
+  <div class="section-title section-gap"><h2>Bancos</h2></div>
+  <div class="grid banks">
+
+    <a class="card bank" href="https://digital.bna.com.ar/loginStep1" target="_blank">
+      <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bna.com.ar&sz=64" alt="Banco Nación">
+      <div class="card-title">Banco Nación</div>
+      <div class="card-url">digital.bna.com.ar</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card bank" href="https://www2.personas.santander.com.ar/obp-webapp/angular/#!/login" target="_blank">
+      <img class="card-logo" src="https://www.google.com/s2/favicons?domain=santander.com.ar&sz=64" alt="Banco Santander">
+      <div class="card-title">Banco Santander</div>
+      <div class="card-url">personas.santander.com.ar</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card bank" href="https://netcash.bbva.com.ar/local_pibee/SolicitarCredenciales.html?251223" target="_blank">
+      <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bbva.com.ar&sz=64" alt="BBVA">
+      <div class="card-title">BBVA</div>
+      <div class="card-url">netcash.bbva.com.ar</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <!-- Agregar más bancos aquí -->
+
+  </div>
+
+  <footer>Red Mercosur &mdash; 2026</footer>
+
+</body>
+</html>
