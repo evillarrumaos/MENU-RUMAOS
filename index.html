@@ -9,8 +9,8 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
-      color: #1a1a2e;
+      background: #0f1117;
+      color: #e2e8f0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -20,13 +20,14 @@
 
     header {
       width: 100%;
-      background: #005075;
+      background: #1a1f2e;
       padding: 24px 40px;
       display: flex;
       align-items: center;
       gap: 16px;
       margin-bottom: 50px;
-      box-shadow: 0 2px 12px rgba(0,80,117,0.25);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      border-bottom: 1px solid #2d3748;
     }
 
     .logo-circle {
@@ -53,7 +54,7 @@
 
     .header-text p {
       font-size: 0.78rem;
-      color: #7ab8cc;
+      color: #4a9aba;
       letter-spacing: 1px;
       margin-top: 2px;
     }
@@ -68,8 +69,8 @@
     }
 
     .card {
-      background: #ffffff;
-      border: 1px solid #dde6ed;
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
       border-radius: 10px;
       padding: 32px 28px;
       text-decoration: none;
@@ -96,7 +97,7 @@
     .card:hover {
       border-color: #00A19C;
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,161,156,0.15);
+      box-shadow: 0 8px 24px rgba(0,161,156,0.2);
     }
 
     .card-icon {
@@ -114,14 +115,14 @@
     .card-title {
       font-size: 1rem;
       font-weight: 700;
-      color: #005075;
+      color: #7dd3d0;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .card-url {
       font-size: 0.72rem;
-      color: #aab8c2;
+      color: #4a5568;
       font-family: monospace;
     }
 
@@ -148,14 +149,14 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: #7a9ab0;
+      color: #4a5568;
     }
 
     .section-title::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: #dde6ed;
+      background: #2d3748;
     }
 
     .section-gap {
@@ -163,22 +164,26 @@
     }
 
     .card.bank::before {
-      background: #1a56a0;
+      background: #3b82f6;
     }
 
     .card.bank:hover {
-      border-color: #1a56a0;
-      box-shadow: 0 8px 24px rgba(26,86,160,0.12);
+      border-color: #3b82f6;
+      box-shadow: 0 8px 24px rgba(59,130,246,0.15);
+    }
+
+    .card.bank .card-title {
+      color: #93c5fd;
     }
 
     .card.bank .card-arrow {
-      color: #1a56a0;
+      color: #3b82f6;
     }
 
     footer {
       margin-top: 60px;
       font-size: 0.72rem;
-      color: #aab8c2;
+      color: #4a5568;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
@@ -197,17 +202,17 @@
   <div class="section-title"><h2>Proyectos</h2></div>
   <div class="grid">
 
-    <a class="card" href="http://192.168.200.12:5758/" target="_blank">
-      <div class="card-icon">🧾</div>
-      <div class="card-title">Facturas y Remitos</div>
-      <div class="card-url">192.168.200.12:5758</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
     <a class="card" href="http://192.168.100.30:5000/vm" target="_blank">
       <div class="card-icon">⚙️</div>
       <div class="card-title">Orquestador</div>
       <div class="card-url">192.168.100.30:5000/vm</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
+      <div class="card-icon">🌐⚙️</div>
+      <div class="card-title">Orquestador Online</div>
+      <div class="card-url">181.118.92.146:10000/echeq</div>
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
@@ -218,12 +223,45 @@
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
+    <a class="card" href="http://192.168.200.44:5055/" target="_blank">
+      <div class="card-icon">📋💰</div>
+      <div class="card-title">Cuenta Corriente</div>
+      <div class="card-url">192.168.200.44:5055</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+  </div>
+
+  <div class="section-title section-gap"><h2>Red MAS</h2></div>
+  <div class="grid">
+
     <a class="card" href="http://192.168.200.12:8085" target="_blank">
       <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;">
         <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
       </div>
       <div class="card-title">Cliente Red MAS</div>
       <div class="card-url">192.168.200.12:8085</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.200.44:5057/" target="_blank">
+      <div class="card-icon">🚕🚛</div>
+      <div class="card-title">Agenda Red MAS GNC/Camión</div>
+      <div class="card-url">192.168.200.44:5057</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.200.44:5056/" target="_blank">
+      <div class="card-icon">⛽🚛</div>
+      <div class="card-title">Venta a Granel</div>
+      <div class="card-url">192.168.200.44:5056</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.200.44:5058/" target="_blank">
+      <div class="card-icon">💵</div>
+      <div class="card-title">Recaudación Prosegur</div>
+      <div class="card-url">192.168.200.44:5058</div>
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
