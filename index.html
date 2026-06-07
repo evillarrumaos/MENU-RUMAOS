@@ -60,31 +60,24 @@
 
     .grid {
       display: grid;
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
       width: 100%;
       max-width: 960px;
       padding: 0 24px;
-    }
-
-    .grid.projects {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .grid.banks {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
 
     .card {
       background: #ffffff;
       border: 1px solid #dde6ed;
       border-radius: 10px;
-      padding: 18px 16px;
+      padding: 32px 28px;
       text-decoration: none;
       color: inherit;
       transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 10px;
       position: relative;
       overflow: hidden;
     }
@@ -107,19 +100,19 @@
     }
 
     .card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 2px;
+      font-size: 2rem;
+      margin-bottom: 4px;
     }
 
     .card-logo {
-      width: 36px;
-      height: 36px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .card-title {
-      font-size: 0.82rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #005075;
       text-transform: uppercase;
@@ -127,14 +120,14 @@
     }
 
     .card-url {
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       color: #aab8c2;
       font-family: monospace;
     }
 
     .card-arrow {
-      margin-top: 8px;
-      font-size: 0.75rem;
+      margin-top: 12px;
+      font-size: 0.8rem;
       color: #00A19C;
       font-weight: 600;
       letter-spacing: 1px;
@@ -202,12 +195,12 @@
   </header>
 
   <div class="section-title"><h2>Proyectos</h2></div>
-  <div class="grid projects">
+  <div class="grid">
 
-    <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
-      <div class="card-icon">📋</div>
-      <div class="card-title">Orquestador Offline</div>
-      <div class="card-url">181.118.92.146:10000/echeq</div>
+    <a class="card" href="http://192.168.200.12:5758/" target="_blank">
+      <div class="card-icon">🧾</div>
+      <div class="card-title">Facturas y Remitos</div>
+      <div class="card-url">192.168.200.12:5758</div>
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
@@ -220,43 +213,26 @@
 
     <a class="card" href="http://192.168.200.12:5000/login" target="_blank">
       <div class="card-icon">📊</div>
-      <div class="card-title">Panel General Operativo</div>
+      <div class="card-title">Panel General</div>
       <div class="card-url">192.168.200.12:5000/login</div>
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
-    <a class="card" href="http://192.168.200.44:5055" target="_blank">
-      <div class="card-icon">💰</div>
-      <div class="card-title">Resumen de Saldo</div>
-      <div class="card-url">192.168.200.44:5055</div>
+    <a class="card" href="http://192.168.200.12:8085" target="_blank">
+      <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;">
+        <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
+      </div>
+      <div class="card-title">Cliente Red MAS</div>
+      <div class="card-url">192.168.200.12:8085</div>
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
-    <a class="card" href="http://192.168.200.44:5056" target="_blank">
-      <div class="card-icon">🚛⛽</div>
-      <div class="card-title">Ventas Granel</div>
-      <div class="card-url">192.168.200.44:5056</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
-    <a class="card" href="http://192.168.200.44:5057" target="_blank">
-      <div class="card-icon">⛽</div>
-      <div class="card-title">Agenda GNC</div>
-      <div class="card-url">192.168.200.44:5057</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
-    <a class="card" href="http://192.168.200.44:5058" target="_blank">
-      <div class="card-icon">💵💵</div>
-      <div class="card-title">Stock Cajas Prosegur</div>
-      <div class="card-url">192.168.200.44:5058</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+    <!-- Agregar más proyectos aquí -->
 
   </div>
 
   <div class="section-title section-gap"><h2>Bancos</h2></div>
-  <div class="grid banks">
+  <div class="grid">
 
     <a class="card bank" href="https://digital.bna.com.ar/loginStep1" target="_blank">
       <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bna.com.ar&sz=64" alt="Banco Nación">
