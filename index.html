@@ -163,6 +163,10 @@
       margin-top: 40px;
     }
 
+    .grid-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     .card.bank::before {
       background: #3b82f6;
     }
@@ -233,7 +237,7 @@
   </div>
 
   <div class="section-title section-gap"><h2>Red MAS</h2></div>
-  <div class="grid">
+  <div class="grid grid-5">
 
     <a class="card" href="http://192.168.200.12:8085" target="_blank">
       <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;">
@@ -262,6 +266,14 @@
       <div class="card-icon">💵</div>
       <div class="card-title">Recaudación Prosegur</div>
       <div class="card-url">192.168.200.44:5058</div>
+      <div class="card-arrow">Abrir &rarr;</div>
+    </a>
+
+    <a class="card" href="http://192.168.200.12:8504" target="_blank">
+      <img class="card-logo" src="http://192.168.200.12:8504/favicon.ico" alt="Lubricante" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="card-icon" style="display:none">🛢️</div>
+      <div class="card-title">Lubricante</div>
+      <div class="card-url">192.168.200.12:8504</div>
       <div class="card-arrow">Abrir &rarr;</div>
     </a>
 
