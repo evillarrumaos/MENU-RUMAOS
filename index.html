@@ -25,9 +25,8 @@
       content: '';
       position: fixed;
       inset: 0;
-      background: url('bg.jpg') center center / cover no-repeat;
-      filter: blur(6px) brightness(0.18);
-      transform: scale(1.05);
+      background: url('bg.jpg') center center / contain no-repeat;
+      filter: blur(4px) brightness(0.18);
       z-index: 0;
     }
 
@@ -265,6 +264,7 @@
       <div class="tab" onclick="showTab('redmas')">📅 Agenda Comercial</div>
       <div class="tab" onclick="showTab('estaciones')">⛽ Agenda Estaciones</div>
       <div class="tab" onclick="showTab('bancos')">🏦 Bancos</div>
+      <div class="tab" onclick="showTab('online')">🌐 Online</div>
     </div>
   </header>
 
@@ -384,6 +384,28 @@
         <div class="card-title">BBVA</div>
         <div class="card-url">netcash.bbva.com.ar</div>
 
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ONLINE -->
+  <div class="panel" id="tab-online">
+    <div class="grid grid-2">
+
+      <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
+        <div class="card-icon">🌐⚙️</div>
+        <div class="card-title">Orquestador Online</div>
+        <div class="card-url">181.118.92.146:10000/echeq</div>
+      </a>
+
+      <a class="card" href="http://181.118.92.146:10005/" target="_blank">
+        <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;position:relative;">
+          <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
+          <span style="position:absolute;bottom:-4px;right:-4px;font-size:14px;">🌐</span>
+        </div>
+        <div class="card-title">Cliente Red MAS Online</div>
+        <div class="card-url">181.118.92.146:10005</div>
       </a>
 
     </div>
