@@ -5,327 +5,393 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RUMAOS - Proyectos</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f1117;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #080b12;
       color: #e2e8f0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 0 60px 0;
+      padding: 0 0 80px 0;
     }
 
     header {
       width: 100%;
-      background: #1a1f2e;
-      padding: 24px 40px;
+      background: linear-gradient(180deg, #111827 0%, #0f1623 100%);
+      padding: 28px 48px 0 48px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      border-bottom: 1px solid #1e2a3a;
+    }
+
+    .header-top {
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 50px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-      border-bottom: 1px solid #2d3748;
+      margin-bottom: 28px;
     }
 
     .logo-circle {
-      width: 44px;
-      height: 44px;
-      background: #00A19C;
-      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #00c9c4, #007a76);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 800;
       color: white;
       flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(0,193,188,0.3);
     }
 
     .header-text h1 {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 2px;
+      color: #f0f6ff;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .header-text p {
-      font-size: 0.78rem;
-      color: #4a9aba;
+      font-size: 0.72rem;
+      color: #4a7a9b;
       letter-spacing: 1px;
-      margin-top: 2px;
+      margin-top: 3px;
+      font-weight: 500;
     }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 2px;
+    }
+
+    .tab {
+      padding: 11px 22px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #4a5a6a;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .tab:hover {
+      color: #94a3b8;
+    }
+
+    .tab.active {
+      color: #00c9c4;
+      border-bottom: 2px solid #00c9c4;
+    }
+
+    /* Panels */
+    .panel {
+      display: none;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 32px;
+      flex-direction: column;
+      gap: 32px;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel.active { display: flex; }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 14px;
       width: 100%;
-      max-width: 1100px;
-      padding: 0 24px;
     }
 
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 280px)); justify-content: start; }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+
     .card {
-      background: #1a1f2e;
-      border: 1px solid #2d3748;
-      border-radius: 10px;
-      padding: 22px 18px;
+      background: #111827;
+      border: 1px solid #1e2d3d;
+      border-radius: 12px;
+      padding: 24px 20px;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, background 0.25s;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       position: relative;
       overflow: hidden;
     }
 
-    .card::before {
+    .card::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: #00A19C;
-      border-radius: 10px 0 0 10px;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,201,196,0.3), transparent);
+      opacity: 0;
+      transition: opacity 0.25s;
     }
 
     .card:hover {
-      border-color: #00A19C;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,161,156,0.2);
+      border-color: #00c9c4;
+      background: #131f2e;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,201,196,0.12);
     }
 
+    .card:hover::after { opacity: 1; }
+
     .card-icon {
-      font-size: 2rem;
-      margin-bottom: 4px;
+      font-size: 1.9rem;
+      margin-bottom: 6px;
+      line-height: 1;
     }
 
     .card-logo {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .card-title {
-      font-size: 1rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #7dd3d0;
+      color: #cbd5e1;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
+      line-height: 1.3;
     }
 
     .card-url {
-      font-size: 0.72rem;
-      color: #4a5568;
-      font-family: monospace;
+      font-size: 0.68rem;
+      color: #334155;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      margin-top: 2px;
     }
 
     .card-arrow {
-      margin-top: 12px;
-      font-size: 0.8rem;
-      color: #00A19C;
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: 0.72rem;
+      color: #00c9c4;
       font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .section-title {
-      width: 100%;
-      max-width: 960px;
-      padding: 0 24px;
-      margin-bottom: 16px;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 4px;
     }
 
-    .section-title h2 {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #4a5568;
-    }
-
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #2d3748;
-    }
-
-    .section-gap {
-      margin-top: 40px;
-    }
-
-    .grid-5 {
-      grid-template-columns: repeat(5, 1fr);
-    }
-
-    .card.bank::before {
-      background: #3b82f6;
-    }
-
-    .card.bank:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 8px 24px rgba(59,130,246,0.15);
-    }
-
-    .card.bank .card-title {
-      color: #93c5fd;
-    }
-
-    .card.bank .card-arrow {
-      color: #3b82f6;
-    }
+    .card.bank { border-color: #1e2d4a; }
+    .card.bank::after { background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), transparent); }
+    .card.bank:hover { border-color: #3b82f6; box-shadow: 0 12px 32px rgba(59,130,246,0.12); }
+    .card.bank .card-title { color: #93c5fd; }
+    .card.bank .card-arrow { color: #3b82f6; }
 
     footer {
       margin-top: 60px;
-      font-size: 0.72rem;
-      color: #4a5568;
-      letter-spacing: 2px;
+      font-size: 0.65rem;
+      color: #1e2a3a;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo-circle">R</div>
-    <div class="header-text">
-      <h1>RUMAOS</h1>
-      <p>Panel de proyectos</p>
+    <div class="header-top">
+      <div class="logo-circle">R</div>
+      <div class="header-text">
+        <h1>RUMAOS</h1>
+        <p>Panel de proyectos</p>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('online')">🌐 Online</div>
+      <div class="tab" onclick="showTab('proyectos')">💰 Gestión Cuentas</div>
+      <div class="tab" onclick="showTab('redmas')">📅 Agenda</div>
+      <div class="tab" onclick="showTab('estaciones')">⛽ Agenda Estaciones</div>
+      <div class="tab" onclick="showTab('bancos')">🏦 Bancos</div>
     </div>
   </header>
 
-  <div class="section-title"><h2>Proyectos</h2></div>
-  <div class="grid grid-5">
+  <!-- ONLINE -->
+  <div class="panel active" id="tab-online">
+    <div class="grid grid-2">
 
-    <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
-      <div class="card-icon">🌐⚙️</div>
-      <div class="card-title">Orquestador Online</div>
-      <div class="card-url">181.118.92.146:10000/echeq</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
+        <div class="card-icon">🌐⚙️</div>
+        <div class="card-title">Orquestador Online</div>
+        <div class="card-url">181.118.92.146:10000/echeq</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.100.30:5000/vm" target="_blank">
-      <div class="card-icon">⚙️</div>
-      <div class="card-title">Orquestador</div>
-      <div class="card-url">192.168.100.30:5000/vm</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://181.118.92.146:10005/" target="_blank">
+        <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;position:relative;">
+          <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
+          <span style="position:absolute;bottom:-4px;right:-4px;font-size:14px;">🌐</span>
+        </div>
+        <div class="card-title">Cliente Red MAS Online</div>
+        <div class="card-url">181.118.92.146:10005</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.200.12:5000/login" target="_blank">
-      <div class="card-icon">📊</div>
-      <div class="card-title">Panel General</div>
-      <div class="card-url">192.168.200.12:5000/login</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
-    <a class="card" href="http://192.168.200.44:5055/" target="_blank">
-      <div class="card-icon">📋💰</div>
-      <div class="card-title">Cuenta Corriente</div>
-      <div class="card-url">192.168.200.44:5055</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
-    <a class="card" href="http://192.168.200.44:5056/" target="_blank">
-      <div class="card-icon">⛽🚛</div>
-      <div class="card-title">Venta a Granel</div>
-      <div class="card-url">192.168.200.44:5056</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
+    </div>
   </div>
 
-  <div class="section-title section-gap"><h2>Red MAS</h2></div>
-  <div class="grid grid-5">
+  <!-- PROYECTOS -->
+  <div class="panel" id="tab-proyectos">
+    <div class="grid grid-5">
 
-    <a class="card" href="http://181.118.92.146:10005/" target="_blank">
-      <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;position:relative;">
-        <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
-        <span style="position:absolute;bottom:-4px;right:-4px;font-size:14px;">🌐</span>
-      </div>
-      <div class="card-title">Cliente Red MAS Online</div>
-      <div class="card-url">181.118.92.146:10005</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.100.30:5000/vm" target="_blank">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">Orquestador</div>
+        <div class="card-url">192.168.100.30:5000/vm</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.200.12:8085" target="_blank">
-      <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;">
-        <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
-      </div>
-      <div class="card-title">Cliente Red MAS</div>
-      <div class="card-url">192.168.200.12:8085</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.12:5000/login" target="_blank">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Panel General</div>
+        <div class="card-url">192.168.200.12:5000/login</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.200.44:5057/" target="_blank">
-      <div class="card-icon">🚕🚛</div>
-      <div class="card-title">Agenda Red MAS GNC/Camión</div>
-      <div class="card-url">192.168.200.44:5057</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.11:5080/Retail/Clientes" target="_blank">
+        <div class="card-icon">📈📉</div>
+        <div class="card-title">Gestión Clientes Cuentas</div>
+        <div class="card-url">192.168.200.11:5080</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.200.44:5058/" target="_blank">
-      <div class="card-icon">💵</div>
-      <div class="card-title">Recaudación Prosegur</div>
-      <div class="card-url">192.168.200.44:5058</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.44:5055/" target="_blank">
+        <div class="card-icon">📋💰</div>
+        <div class="card-title">Cuenta Corriente</div>
+        <div class="card-url">192.168.200.44:5055</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.200.12:8504" target="_blank">
-      <div class="card-icon">🛢️</div>
-      <div class="card-title">Lubricante</div>
-      <div class="card-url">192.168.200.12:8504</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
-
-    <!-- Agregar más proyectos aquí -->
-
+    </div>
   </div>
 
-  <div class="section-title section-gap"><h2>Bancos</h2></div>
-  <div class="grid">
+  <!-- RED MAS -->
+  <div class="panel" id="tab-redmas">
+    <div class="grid grid-5">
 
-    <a class="card bank" href="https://digital.bna.com.ar/loginStep1" target="_blank">
-      <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bna.com.ar&sz=64" alt="Banco Nación">
-      <div class="card-title">Banco Nación</div>
-      <div class="card-url">digital.bna.com.ar</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.12:8085" target="_blank">
+        <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;">
+          <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
+        </div>
+        <div class="card-title">Cliente Red MAS</div>
+        <div class="card-url">192.168.200.12:8085</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card bank" href="https://www2.personas.santander.com.ar/obp-webapp/angular/#!/login" target="_blank">
-      <img class="card-logo" src="https://www.google.com/s2/favicons?domain=santander.com.ar&sz=64" alt="Banco Santander">
-      <div class="card-title">Banco Santander</div>
-      <div class="card-url">personas.santander.com.ar</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.44:5057/" target="_blank">
+        <div class="card-icon">🚕🚛</div>
+        <div class="card-title">Agenda Red MAS GNC/Camión</div>
+        <div class="card-url">192.168.200.44:5057</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card bank" href="https://netcash.bbva.com.ar/local_pibee/SolicitarCredenciales.html?251223" target="_blank">
-      <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bbva.com.ar&sz=64" alt="BBVA">
-      <div class="card-title">BBVA</div>
-      <div class="card-url">netcash.bbva.com.ar</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.44:5056/" target="_blank">
+        <div class="card-icon">⛽🚛</div>
+        <div class="card-title">Venta a Granel</div>
+        <div class="card-url">192.168.200.44:5056</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <a class="card" href="http://192.168.200.44:5070/" target="_blank">
-      <div class="card-icon">🚛📋</div>
-      <div class="card-title">Placas Camioneros</div>
-      <div class="card-url">192.168.200.44:5070</div>
-      <div class="card-arrow">Abrir &rarr;</div>
-    </a>
+      <a class="card" href="http://192.168.200.44:5070/" target="_blank">
+        <div class="card-icon">🚛📋</div>
+        <div class="card-title">Placas Camioneros</div>
+        <div class="card-url">192.168.200.44:5070</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
 
-    <!-- Agregar más bancos aquí -->
+    </div>
+  </div>
 
+  <!-- AGENDA ESTACIONES -->
+  <div class="panel" id="tab-estaciones">
+    <div class="grid">
+
+      <a class="card" href="http://192.168.200.44:5058/" target="_blank">
+        <div class="card-icon">💵</div>
+        <div class="card-title">Recaudación Prosegur</div>
+        <div class="card-url">192.168.200.44:5058</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
+
+      <a class="card" href="http://192.168.200.12:8504" target="_blank">
+        <div class="card-icon">🛢️</div>
+        <div class="card-title">Lubricante</div>
+        <div class="card-url">192.168.200.12:8504</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- BANCOS -->
+  <div class="panel" id="tab-bancos">
+    <div class="grid">
+
+      <a class="card bank" href="https://digital.bna.com.ar/loginStep1" target="_blank">
+        <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bna.com.ar&sz=64" alt="Banco Nación">
+        <div class="card-title">Banco Nación</div>
+        <div class="card-url">digital.bna.com.ar</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
+
+      <a class="card bank" href="https://www2.personas.santander.com.ar/obp-webapp/angular/#!/login" target="_blank">
+        <img class="card-logo" src="https://www.google.com/s2/favicons?domain=santander.com.ar&sz=64" alt="Banco Santander">
+        <div class="card-title">Banco Santander</div>
+        <div class="card-url">personas.santander.com.ar</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
+
+      <a class="card bank" href="https://netcash.bbva.com.ar/local_pibee/SolicitarCredenciales.html?251223" target="_blank">
+        <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bbva.com.ar&sz=64" alt="BBVA">
+        <div class="card-title">BBVA</div>
+        <div class="card-url">netcash.bbva.com.ar</div>
+        <div class="card-arrow">Abrir &rarr;</div>
+      </a>
+
+    </div>
   </div>
 
   <footer>Red Mercosur &mdash; 2026</footer>
+
+  <script>
+    function showTab(name) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + name).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
