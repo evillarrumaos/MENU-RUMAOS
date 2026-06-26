@@ -243,6 +243,62 @@
       text-transform: uppercase;
       font-weight: 600;
     }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 16px 0 16px;
+      }
+
+      .header-top {
+        margin-bottom: 16px;
+      }
+
+      .header-text h1 { font-size: 1rem; letter-spacing: 2px; }
+      .header-text p  { display: none; }
+
+      .brand-logo { height: 24px !important; }
+
+      .logo-circle { width: 34px; height: 34px; font-size: 0.9rem; }
+
+      .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0;
+      }
+      .tabs::-webkit-scrollbar { display: none; }
+
+      .tab {
+        padding: 10px 14px;
+        font-size: 0.68rem;
+        letter-spacing: 0.8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .panel {
+        padding: 0 12px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 100%;
+      }
+
+      .card {
+        padding: 16px 14px;
+      }
+
+      .card-icon { font-size: 1.5rem; }
+      .card-title { font-size: 0.72rem; letter-spacing: 0.5px; }
+      .card-url { font-size: 0.6rem; }
+    }
   </style>
 </head>
 <body>
@@ -255,7 +311,7 @@
         <p>Panel de proyectos</p>
       </div>
       <div class="header-logos">
-        <img class="brand-logo" src="https://www.google.com/s2/favicons?domain=ypf.com&sz=64" alt="YPF">
+        <img class="brand-logo" src="ypf.svg" alt="YPF" style="height:32px;">
         <img class="brand-logo" src="https://www.google.com/s2/favicons?domain=dapsa.com.ar&sz=64" alt="DAPSA">
       </div>
     </div>
