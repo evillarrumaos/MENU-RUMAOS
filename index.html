@@ -261,68 +261,43 @@
       </div>
     </div>
     <div class="tabs">
-      <div class="tab active" onclick="showTab('online')">🌐 Online</div>
-      <div class="tab" onclick="showTab('proyectos')">💰 Gestión Cuentas</div>
-      <div class="tab" onclick="showTab('redmas')">📅 Agenda</div>
+      <div class="tab active" onclick="showTab('proyectos')">💰 Gestión Cuentas</div>
+      <div class="tab" onclick="showTab('redmas')">📅 Agenda Comercial</div>
       <div class="tab" onclick="showTab('estaciones')">⛽ Agenda Estaciones</div>
       <div class="tab" onclick="showTab('bancos')">🏦 Bancos</div>
     </div>
   </header>
 
-  <!-- ONLINE -->
-  <div class="panel active" id="tab-online">
-    <div class="grid grid-2">
-
-      <a class="card" href="http://181.118.92.146:10000/echeq" target="_blank">
-        <div class="card-icon">🌐⚙️</div>
-        <div class="card-title">Orquestador Online</div>
-        <div class="card-url">181.118.92.146:10000/echeq</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
-      <a class="card" href="http://181.118.92.146:10005/" target="_blank">
-        <div style="width:48px;height:48px;background:#cc0000;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;position:relative;">
-          <span style="color:#ffffff;font-weight:900;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.1;text-align:center;">red<br>mas</span>
-          <span style="position:absolute;bottom:-4px;right:-4px;font-size:14px;">🌐</span>
-        </div>
-        <div class="card-title">Cliente Red MAS Online</div>
-        <div class="card-url">181.118.92.146:10005</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
-    </div>
-  </div>
-
   <!-- PROYECTOS -->
-  <div class="panel" id="tab-proyectos">
+  <div class="panel active" id="tab-proyectos">
     <div class="grid grid-5">
 
       <a class="card" href="http://192.168.100.30:5000/vm" target="_blank">
         <div class="card-icon">⚙️</div>
         <div class="card-title">Orquestador</div>
         <div class="card-url">192.168.100.30:5000/vm</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.12:5000/login" target="_blank">
         <div class="card-icon">📊</div>
         <div class="card-title">Panel General</div>
         <div class="card-url">192.168.200.12:5000/login</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.11:5080/Retail/Clientes" target="_blank">
         <div class="card-icon">📈📉</div>
         <div class="card-title">Gestión Clientes Cuentas</div>
         <div class="card-url">192.168.200.11:5080</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.44:5055/" target="_blank">
         <div class="card-icon">📋💰</div>
         <div class="card-title">Cuenta Corriente</div>
         <div class="card-url">192.168.200.44:5055</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
     </div>
@@ -338,28 +313,28 @@
         </div>
         <div class="card-title">Cliente Red MAS</div>
         <div class="card-url">192.168.200.12:8085</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.44:5057/" target="_blank">
         <div class="card-icon">🚕🚛</div>
         <div class="card-title">Agenda Red MAS GNC/Camión</div>
         <div class="card-url">192.168.200.44:5057</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.44:5056/" target="_blank">
         <div class="card-icon">⛽🚛</div>
         <div class="card-title">Venta a Granel</div>
         <div class="card-url">192.168.200.44:5056</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.44:5070/" target="_blank">
         <div class="card-icon">🚛📋</div>
         <div class="card-title">Placas Camioneros</div>
         <div class="card-url">192.168.200.44:5070</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
     </div>
@@ -373,14 +348,14 @@
         <div class="card-icon">💵</div>
         <div class="card-title">Recaudación Prosegur</div>
         <div class="card-url">192.168.200.44:5058</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card" href="http://192.168.200.12:8504" target="_blank">
         <div class="card-icon">🛢️</div>
         <div class="card-title">Lubricante</div>
         <div class="card-url">192.168.200.12:8504</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
     </div>
@@ -394,21 +369,21 @@
         <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bna.com.ar&sz=64" alt="Banco Nación">
         <div class="card-title">Banco Nación</div>
         <div class="card-url">digital.bna.com.ar</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card bank" href="https://www2.personas.santander.com.ar/obp-webapp/angular/#!/login" target="_blank">
         <img class="card-logo" src="https://www.google.com/s2/favicons?domain=santander.com.ar&sz=64" alt="Banco Santander">
         <div class="card-title">Banco Santander</div>
         <div class="card-url">personas.santander.com.ar</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
       <a class="card bank" href="https://netcash.bbva.com.ar/local_pibee/SolicitarCredenciales.html?251223" target="_blank">
         <img class="card-logo" src="https://www.google.com/s2/favicons?domain=bbva.com.ar&sz=64" alt="BBVA">
         <div class="card-title">BBVA</div>
         <div class="card-url">netcash.bbva.com.ar</div>
-        <div class="card-arrow">&rarr;</div>
+
       </a>
 
     </div>
